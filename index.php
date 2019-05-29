@@ -2,11 +2,6 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-// init Awin app
-
-use App\Scripts\Report;
-
-$report = new Report();
+$report = new App\Scripts\AwinReport();
 echo $report->run();
-
 

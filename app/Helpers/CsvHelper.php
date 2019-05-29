@@ -1,12 +1,13 @@
 <?php
 
-namespace Helpers;
+namespace App\Helpers;
 
 /**
  * Csv Handling Class
  *
  */
-class CsvHelper {
+final class CsvHelper {
+
     /**
      * Get all records from Model Resource
      */

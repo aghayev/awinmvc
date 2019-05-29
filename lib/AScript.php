@@ -2,33 +2,59 @@
 
 namespace Lib;
 
+/**
+ * Class AScript
+ *
+ * @package Lib
+ */
 abstract class AScript 
 {
 
+/**
+ * @var array
+ */
 private $argv = [];
 
-	public function __construct() 
+    /**
+     * AScript Constructor
+     */
+	public function __construct($shortopts)
 	{
-		$shortopts = "m:";
-		$longopts  = array(
-    		"merchant:",
-		);
-
-		$this->argv = getopt($shortopts, $longopts);
+		$this->argv = getopt($shortopts);
 	}
 
+    /**
+     * Get argument method
+     *
+     * @param string $key
+     * @return mixed string|null
+     */
 	public function get($id) {
 		return $this->argv[$id];
 	}
 
-	public function has($id) {
-		return isset($this->argv[$id]);
+    /**
+     * Has argument method
+     *
+     * @param string $key
+     * @return bool
+     */
+	public function has($key) {
+		return isset($this->argv[$key]);
 	}
 
+    /**
+     * Count method
+     *
+     * @return int
+     */
 	public function count() {
 		return count($this->argv);
 	}
 
+    /**
+     * Abstract method run(), needs impl. in concrete classes
+     */
 	abstract protected function run();
 }
 

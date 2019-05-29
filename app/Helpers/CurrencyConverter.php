@@ -1,8 +1,8 @@
 <?php
 
-namespace Helpers;
+namespace App\Helpers;
 
-use Models\Resources\CurrencyWebservice;
+use App\Models\Resources\CurrencyWebservice;
 
 /**
  * Uses CurrencyWebservice
@@ -10,14 +10,29 @@ use Models\Resources\CurrencyWebservice;
  */
 class CurrencyConverter {
 
+    /**
+     * @var CurrencyWebservice|null
+     */
     private $currencyWebservice = null;
 
-    public function __construct(CurrencyWebservice $currencyWebservice) 
+    /**
+     * CurrencyConverter constructor.
+     *
+     * @param CurrencyWebservice $currencyWebservice
+     */
+    public function __construct(CurrencyWebservice $currencyWebservice)
     {
         $this->currencyWebservice = $currencyWebservice;
     }
 
-    public function convert($amount, $currency)
+    /**
+     * Exchange method
+     *
+     * @param int $amount
+     * @param string $currency
+     * @return float|int
+     */
+    public function exchange($amount, $currency)
     {
         $exchangeRate = $this->currencyWebservice->getExchangeRate($currency);
         return $amount/$exchangeRate;

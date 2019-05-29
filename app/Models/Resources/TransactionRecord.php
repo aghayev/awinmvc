@@ -1,8 +1,8 @@
 <?php
 
-namespace Models\Resources;
+namespace App\Models\Resources;
 
-use Helpers\CsvHelper;
+use App\Helpers\CsvHelper;
 
 /**
  * Class TransactionRecord
@@ -20,7 +20,7 @@ class TransactionRecord
     /**
      * Setup Transaction Record
      */
-    public function setRecord($record) {
+    public function loadRecord($record) {
         if (!isset($record[0])) {
          throw new \Exception('Merchant Id is not present within record');
         }

@@ -1,15 +1,23 @@
 <?php
 
-namespace Models;
+namespace App\Models;
 
-use Models\Resources\TransactionTable;
+use Lib\IResource;
 
 /**
  * Class Merchant
  */
-class Merchant extends Model
+class Merchant
 {
+    /**
+     * @var int|null
+     */
     private $merchantId = null;
+
+    /**
+     * @var IResource
+     */
+    private $resource = null;
 
     /**
      * Assign MerchantId via Constuctor
@@ -21,22 +29,22 @@ class Merchant extends Model
     }
 
     /**
+     * Dependency Injection via setter method
+     *
+     * @param IResource $resource
+     */
+    public function setResource(IResource $resource)
+    {
+        $this->resource = $resource;
+    }
+
+    /**
      * Get All Transactions For MerchantId Only
      *
      * @return array
      */
-    public function getTransactions() {
-
-        $transactions = new TransactionTable();
-        $transactionRecords = $transactions->getAll();
-        $row = 0;
-
-        foreach ($transactionRecords as $transactionRecord) {
-            if ($transactionRecord->getMerchantId() != $this->merchantId) {
-                unset($transactionRecords[$row]);
-            }
-            $row++;
-        }
+    public function getAll() {
+        $transactionRecords = $this->resource->load($this->merchantId);
         return $transactionRecords;
     }
 }

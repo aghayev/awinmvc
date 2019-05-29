@@ -1,6 +1,6 @@
 <?php
 
-namespace Models\Resources;
+namespace App\Models\Resources;
 
 /**
  * Dummy web service returning random exchange rates
