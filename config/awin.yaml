@@ -1,0 +1,2 @@
+resources:
+        transaction_data_src: data.csv

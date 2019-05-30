@@ -15,5 +15,7 @@
         }
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "symfony/yaml": "^3.4"
+    }
 }

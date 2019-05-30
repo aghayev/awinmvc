@@ -38,12 +38,27 @@ class AwinReport extends AScript
             var_dump($transactions);
 
         } else {
-            throw new \Exception('No arguments specified');
+            echo $this->usageHelp();
             }
         }
         catch (\Exception $e) {
             var_dump($e->getMessage());
         }
+    }
+
+    /**
+     * Usage Help
+     */
+    private function usageHelp()
+    {
+        return <<<USAGE
+Usage:
+    php index.php -m mechantId [1|2]
+
+    Options:
+        -m    Specify merchant identifier
+
+USAGE;
     }
 }
 

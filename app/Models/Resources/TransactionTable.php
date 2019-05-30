@@ -1,6 +1,7 @@
 <?php
 namespace App\Models\Resources;
 
+use Symfony\Component\Yaml\Yaml;
 use App\Models\Resources\TransactionRecord;
 use App\Helpers\CsvHelper;
 use App\Models\Resources\CurrencyWebservice;
@@ -31,7 +32,8 @@ class TransactionTable implements IResource
      */
     public function load($key) {
 
-        $dataSource = __DIR__  . '/data.csv';
+        $conf = Yaml::parse(file_get_contents(__DIR__  . '/../../../config/awin.yaml'));
+        $dataSource = __DIR__  . '/' .$conf['resources']['transaction_data_src'];
 
         if ($dataSource == false) {
             throw new \Exception('Unable to find data_file_path');
