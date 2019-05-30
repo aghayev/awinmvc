@@ -46,7 +46,7 @@ class TransactionTable implements IResource
            $transactionRecord->loadRecord($record);
 
            if ($transactionRecord->getMerchantId() == $key) {
-               $currencyConverter = new CurrencyConverter(new CurrencyWebservice());
+               $currencyConverter = new CurrencyConverter(new EcbWebservice());
                $newAmount = $currencyConverter->exchange($transactionRecord->getAmount(), $transactionRecord->getCurrency());
                $transactionRecord->setAmount($newAmount);
                $transactionRecord->setCurrency($newAmount);

@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-use App\Models\Resources\CurrencyWebservice;
+use Lib\ICurrencyWebservice;
 
 /**
  * Uses CurrencyWebservice
@@ -18,9 +18,9 @@ class CurrencyConverter {
     /**
      * CurrencyConverter constructor.
      *
-     * @param CurrencyWebservice $currencyWebservice
+     * @param ICurrencyWebservice $currencyWebservice
      */
-    public function __construct(CurrencyWebservice $currencyWebservice)
+    public function __construct(ICurrencyWebservice $currencyWebservice)
     {
         $this->currencyWebservice = $currencyWebservice;
     }
