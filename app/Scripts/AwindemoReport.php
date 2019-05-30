@@ -7,11 +7,11 @@ use App\Models\Resources\TransactionTable;
 use Lib\AScript;
 
 /**
- * Class AwinReport
+ * Class AwindemoReport
  *
  * @package App\Scripts
  */
-class AwinReport extends AScript
+class AwindemoReport extends AScript
 {
 
     /**

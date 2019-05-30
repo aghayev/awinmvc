@@ -1,10 +1,8 @@
 <?php
 namespace App\Models\Resources;
 
-use Symfony\Component\Yaml\Yaml;
 use App\Models\Resources\TransactionRecord;
 use App\Helpers\CsvHelper;
-use App\Models\Resources\CurrencyWebservice;
 use App\Helpers\CurrencyConverter;
 
 use Lib\IResource;
@@ -32,8 +30,7 @@ class TransactionTable implements IResource
      */
     public function load($key) {
 
-        $conf = Yaml::parse(file_get_contents(__DIR__  . '/../../../config/awin.yaml'));
-        $dataSource = __DIR__  . '/' .$conf['resources']['transaction_data_src'];
+        $dataSource = \App\AwindemoIoc::make('yamldatacsv');
 
         if ($dataSource == false) {
             throw new \Exception('Unable to find data_file_path');
@@ -46,7 +43,7 @@ class TransactionTable implements IResource
            $transactionRecord->loadRecord($record);
 
            if ($transactionRecord->getMerchantId() == $key) {
-               $currencyConverter = new CurrencyConverter(new EcbWebservice());
+               $currencyConverter = \App\AwindemoIoc::make('currencyconverter');
                $newAmount = $currencyConverter->exchange($transactionRecord->getAmount(), $transactionRecord->getCurrency());
                $transactionRecord->setAmount($newAmount);
                $transactionRecord->setCurrency($newAmount);

@@ -2,6 +2,8 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-$report = new App\Scripts\AwinReport();
+App\AwindemoIoc::init();
+
+$report = new App\Scripts\AwindemoReport();
 echo $report->run();
 
