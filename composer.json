@@ -16,6 +16,7 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "symfony/yaml": "^3.4"
+        "symfony/yaml": "^3.4",
+        "phpunit/phpunit": "^6.5"
     }
 }

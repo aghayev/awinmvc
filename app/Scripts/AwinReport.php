@@ -51,14 +51,14 @@ class AwinReport extends AScript
      */
     private function usageHelp()
     {
-        return <<<USAGE
+        return '
 Usage:
     php index.php -m mechantId [1|2]
 
     Options:
         -m    Specify merchant identifier
 
-USAGE;
+';
     }
 }
 
