@@ -27,8 +27,9 @@ class AwindemoIoc extends AIoc
         });
 
         self::bind('yamldatacsv', function() {
-            $conf = Yaml::parse(file_get_contents(__DIR__  . '/../config/awin.yaml'));
-            return __DIR__  . '/../config/' .$conf['resources']['transaction_data_src'];
+            $confDir =  '/../config/';
+            $conf = Yaml::parse(file_get_contents(__DIR__ . $confDir . 'awindemo.yaml'));
+            return __DIR__  . $confDir .$conf['resources']['transaction_data_src'];
         });
     }
 }
