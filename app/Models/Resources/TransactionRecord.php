@@ -32,26 +32,56 @@ class TransactionRecord
         $this->amount = $currencyParts[1];
     }
 
+    /**
+     * Get Merchant Id
+     *
+     * @return int|null
+     */
     public function getMerchantId() {
         return $this->merchantId;
     }
 
+    /**
+     * Get Date
+     *
+     * @return null
+     */
     public function getDate() {
         return $this->date;
     }
 
+    /**
+     * Get Currency
+     *
+     * @return mixed
+     */
     public function getCurrency() {
         return $this->currency;
     }
 
+    /**
+     * Get Amount
+     *
+     * @return mixed
+     */
     public function getAmount() {
         return $this->amount;
     }
 
+    /**
+     * Set Amount
+     *
+     * @param float $amount
+     */
     public function setAmount($amount) {
         $this->amount = $amount;
     }
 
+    /**
+     * Set Currency
+     *
+     * @param string $currency
+     */
     public function setCurrency($currency) {
         $this->currency = $currency;
     }
