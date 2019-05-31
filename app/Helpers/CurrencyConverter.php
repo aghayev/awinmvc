@@ -15,15 +15,37 @@ class CurrencyConverter {
      */
     private $currencyWebservice = null;
 
+    /** TEMPORARY ADDED */
+
     /**
-     * CurrencyConverter constructor.
+     * Singleton instance
      *
-     * @param ICurrencyWebservice $currencyWebservice
+     * @var
      */
-    public function __construct(ICurrencyWebservice $currencyWebservice)
-    {
-        $this->currencyWebservice = $currencyWebservice;
+    private static $instance;
+
+    /**
+     * AObjectSingleton constructor. No access to it
+     */
+    private function __construct() {}
+    private function __clone() {}
+
+    /**
+     * Using of static keyword
+     *
+     * @return static
+     */
+    public static function getInstance(ICurrencyWebservice $currencyWebservice) {
+
+        if (empty(self::$instance)) {
+            self::$instance = new static();
+            self::$instance->currencyWebservice = $currencyWebservice;
+        }
+
+        return self::$instance;
     }
+
+    /** TEMPORARY ADDED */
 
     /**
      * Exchange method

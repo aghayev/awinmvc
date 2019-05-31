@@ -23,7 +23,7 @@ class AwindemoIoc extends AIoc
         });
 
         self::bind('currencyconverter', function() {
-            return new \App\Helpers\CurrencyConverter(\App\AwindemoIoc::make('ecbwebservice'));
+            return \App\Helpers\CurrencyConverter::getInstance(\App\AwindemoIoc::make('ecbwebservice'));
         });
 
         self::bind('yamldatacsv', function() {
