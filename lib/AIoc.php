@@ -55,4 +55,9 @@ abstract class AIoc
     {
         return array_key_exists($name, static::$registry);
     }
+
+    /**
+     * Abstract static method init(), needs impl. in concrete classes
+     */
+    abstract static protected function init();
 }

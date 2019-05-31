@@ -19,7 +19,7 @@ class AwindemoIoc extends AIoc
     public static function init()
     {
         self::bind('ecbwebservice', function() {
-            return new \App\Models\Resources\EcbWebservice();
+            return \App\Models\Resources\EcbWebservice::getInstance();
         });
 
         self::bind('currencyconverter', function() {

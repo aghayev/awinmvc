@@ -2,7 +2,8 @@
 
 namespace App\Models\Resources;
 
-use Lib\ICurrencyWebservice;
+use Lib\AObjectSingleton;
+use Lib\ICurrencyService;
 
 /**
  * ECB Web service returning latest exchange rate taken from European Central Bank public API
@@ -10,7 +11,7 @@ use Lib\ICurrencyWebservice;
  * Demonstration of using xpath query
  *
  */
-class EcbWebservice implements ICurrencyWebservice
+class EcbWebservice extends AObjectSingleton
 {
 
     /**
@@ -37,8 +38,9 @@ class EcbWebservice implements ICurrencyWebservice
     /**
      * EcbWebservice constructor
      */
-    public function __construct()
+    public function init()
     {
+        echo '***ECB Singleton Webservice***'."\n";
 
         $xml = file_get_contents('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml');
 
