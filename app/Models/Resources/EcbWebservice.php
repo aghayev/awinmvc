@@ -4,6 +4,7 @@ namespace App\Models\Resources;
 
 use Lib\AObjectSingleton;
 use Lib\ICurrencyService;
+use Lib\ICurrencyWebservice;
 
 /**
  * ECB Web service returning latest exchange rate taken from European Central Bank public API
@@ -11,7 +12,7 @@ use Lib\ICurrencyService;
  * Demonstration of using xpath query
  *
  */
-class EcbWebservice extends AObjectSingleton
+class EcbWebservice extends AObjectSingleton implements ICurrencyWebservice
 {
 
     /**
