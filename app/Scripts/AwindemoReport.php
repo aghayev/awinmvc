@@ -3,7 +3,7 @@
 namespace App\Scripts;
 
 use App\Models\Merchant;
-use App\Models\Resources\TransactionTable;
+use App\Models\Resources\TransactionCollection;
 use Lib\AScript;
 
 /**
@@ -32,7 +32,7 @@ class AwindemoReport extends AScript
         if ($this->has('m')) {
 
             $merchant = new Merchant($this->get('m'));
-            $merchant->setResource(new TransactionTable());
+            $merchant->setResource(new TransactionCollection());
             $transactions = $merchant->getAll();
 
             var_dump($transactions);

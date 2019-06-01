@@ -1,20 +1,18 @@
 <?php
 namespace App\Models\Resources;
 
-use App\Models\Resources\TransactionRecord;
 use App\Helpers\CsvHelper;
-use App\Helpers\CurrencyConverter;
 
 use Lib\IResource;
 
 /**
- * Class TransactionTable
+ * Class TransactionCollection
  * @package App
  *
  * Source of transactions, can read data.csv directly for simplicty sake, 
  * should behave like a database (read only)
  */
-class TransactionTable implements IResource
+class TransactionCollection implements IResource
 {
     /**
      * @var array
