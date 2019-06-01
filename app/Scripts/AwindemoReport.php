@@ -35,8 +35,9 @@ class AwindemoReport extends AScript
             $merchant->setResource(new TransactionCollection());
             $transactions = $merchant->getAll();
 
-            var_dump($transactions);
-
+            foreach ($transactions as $transaction) {
+                printf("%s;%s%.2f\n",$transaction->getDate(),'£',$transaction->getAmount());
+            }
         } else {
             echo $this->usageHelp();
             }

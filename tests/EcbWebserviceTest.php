@@ -1,13 +1,19 @@
 <?php
 
-use App\Models\Resources\EcbWebservice;
 use PHPUnit\Framework\TestCase;
+use App\AwindemoIoc;
 
 class EcbWebserviceTest extends TestCase
 {
+    public function __construct($name = null, array $data = [], $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+        AwindemoIoc::init();
+    }
+
     public function testExchange()
     {
-        $ecb = new EcbWebservice();
-        $this->assertSame(1, $ecb->getExchangeRate('EUR'));
+        $ecb = \App\AwindemoIoc::make('ecbwebservice');
+        $this->assertSame(1, $ecb->getExchangeRate('GBP'));
     }
 }
