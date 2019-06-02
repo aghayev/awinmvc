@@ -41,7 +41,7 @@ class EcbWebservice extends AObjectSingleton implements ICurrencyWebservice
      */
     public function init()
     {
-        $xml = file_get_contents('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml');
+        $xml = file_get_contents(\App\AwindemoIoc::make('yamlconf')['resources']['currency_service_url']);
 
         $this->sxe = new \SimpleXMLElement($xml);
 
