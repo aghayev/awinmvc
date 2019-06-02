@@ -26,12 +26,6 @@ class AwindemoIoc extends AIoc
             return \App\Helpers\CurrencyConverter::getInstance(\App\AwindemoIoc::make('ecbwebservice'));
         });
 
-        self::bind('yamldatacsv', function() {
-            $confDir =  '/../config/';
-            $conf = Yaml::parse(file_get_contents(__DIR__ . $confDir . 'awindemo.yaml'));
-            return __DIR__  . $confDir .$conf['resources']['transaction_data_src'];
-        });
-
         self::bind('yamlconf', function() {
             return Yaml::parse(file_get_contents(__DIR__ . '/../config/awindemo.yaml'));
         });

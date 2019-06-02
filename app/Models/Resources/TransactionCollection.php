@@ -28,7 +28,7 @@ class TransactionCollection implements IResource
      */
     public function load($key) {
 
-        $dataSource = \App\AwindemoIoc::make('yamldatacsv');
+        $dataSource = \App\AwindemoIoc::make('yamlconf')['resources']['transaction_data_src'];
 
         if ($dataSource == false) {
             throw new \Exception('Unable to find data_file_path');
