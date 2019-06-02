@@ -14,6 +14,6 @@ class EcbWebserviceTest extends TestCase
     public function testExchange()
     {
         $ecb = \App\AwindemoIoc::make('ecbwebservice');
-        $this->assertSame(1, $ecb->getExchangeRate('GBP'));
+        $this->assertSame(1.0, $ecb->getExchangeRate('GBP'));
     }
 }
