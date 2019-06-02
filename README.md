@@ -8,6 +8,7 @@ Features
 * Users Interfaces and Abstract classes (for Argv/Argc for example)
 * Trying to implment IoC via Dependency Injection
 * CurrencyConverter uses own direct Dependency Injection through Setter method
+* TransactionRecord has getters and setters
 * Demonstration of using xpath query
 * Using yaml for config
 * Using phpunit for tests

@@ -8,7 +8,7 @@ use App\Helpers\CsvHelper;
  * Class TransactionRecord
  * @package App
  *
- * This class is Transaction Record Data Object. Does Active Record
+ * This class is Transaction Record Data Object has getters and setters
  */
 class TransactionRecord
 {
