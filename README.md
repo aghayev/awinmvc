@@ -15,6 +15,7 @@ Features
 Using scenario
 -------------
 ```
+composer update
 php index.php -m 1
 php index.php -m 2
 ```
