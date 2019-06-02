@@ -36,12 +36,16 @@ class TransactionCollection implements IResource
 
         $records = CsvHelper::loadData($dataSource);
 
+        $currencyConverter = \App\AwindemoIoc::make('currencyconverter');
+        if (!$currencyConverter) {
+            throw new \Exception('Currency Converter not found');
+        }
+
         foreach ($records as $record) {
            $transactionRecord = new TransactionRecord();
            $transactionRecord->loadRecord($record);
 
            if ($transactionRecord->getMerchantId() == $key) {
-               $currencyConverter = \App\AwindemoIoc::make('currencyconverter');
                $newAmount = $currencyConverter->exchange($transactionRecord->getAmount(), $transactionRecord->getCurrency());
                $transactionRecord->setAmount($newAmount);
                $transactionRecord->setCurrency($newAmount);

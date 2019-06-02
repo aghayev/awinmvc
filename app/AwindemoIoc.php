@@ -23,7 +23,9 @@ class AwindemoIoc extends AIoc
         });
 
         self::bind('currencyconverter', function() {
-            return \App\Helpers\CurrencyConverter::getInstance(\App\AwindemoIoc::make('ecbwebservice'));
+            $currencyConverter = new \App\Helpers\CurrencyConverter();
+            $currencyConverter->setWebservice(self::make('ecbwebservice'));
+            return $currencyConverter;
         });
 
         self::bind('yamlconf', function() {
